@@ -14,17 +14,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 
-//var connectionString = ConnectionHelper.GetConnectionString(builder.Configuration);
-//builder.Services.AddDbContext<ApplicationDbContext>(options =>
-//options.UseNpgsql(connectionString));
+var connectionString = ConnectionHelper.GetConnectionString(builder.Configuration);
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+options.UseNpgsql(connectionString));
 
 //var connectionString = builder.Configuration.GetConnectionString("ContactDb") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 //builder.Services.AddDbContext<ApplicationDbContext>(options =>
 //    options.UseNpgsql(connectionString));
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? Environment.GetEnvironmentVariable("DATABASE_URL");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(connectionString));
+//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? Environment.GetEnvironmentVariable("DATABASE_URL");
+//builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//    options.UseNpgsql(connectionString));
 
 
 // I added this
@@ -46,8 +46,9 @@ builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailS
 // Configure the HTTP request pipeline.
 
 var app = builder.Build();
+var scope = app.Services.CreateScope();
+await DataHelper.ManageDataAsync(scope.ServiceProvider);
 
-// i switched the migration above the managedata async 
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -58,11 +59,6 @@ else
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
-var scope = app.Services.CreateScope();
-await DataHelper.ManageDataAsync(scope.ServiceProvider);
-
-
 
 app.UseStatusCodePagesWithReExecute("/Home/HandleError/{0}");
 
