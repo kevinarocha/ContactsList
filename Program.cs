@@ -22,7 +22,7 @@ var builder = WebApplication.CreateBuilder(args);
 //builder.Services.AddDbContext<ApplicationDbContext>(options =>
 //    options.UseNpgsql(connectionString));
 
-var connectionString = builder.Configuration.GetConnectionString("DATABASE_URL") ?? Environment.GetEnvironmentVariable("DATABASE_URL");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? Environment.GetEnvironmentVariable("DATABASE_URL");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
 
@@ -43,12 +43,11 @@ builder.Services.AddScoped<IAddressBookService, AddressBookService>();
 builder.Services.AddScoped<IEmailSender, EmailService>();
 
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
+// Configure the HTTP request pipeline.
 
 var app = builder.Build();
-var scope = app.Services.CreateScope();
-await DataHelper.ManageDataAsync(scope.ServiceProvider);
 
-// Configure the HTTP request pipeline.
+// i switched the migration above the managedata async 
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -59,6 +58,11 @@ else
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+var scope = app.Services.CreateScope();
+await DataHelper.ManageDataAsync(scope.ServiceProvider);
+
+
 
 app.UseStatusCodePagesWithReExecute("/Home/HandleError/{0}");
 
