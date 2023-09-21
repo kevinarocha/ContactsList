@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	  <InvariantGlobalization>true</InvariantGlobalization>
     <UserSecretsId>aspnet-MyContactsDigital-5CC4891C-FBB4-4B20-80A4-544A3B5E3EF2</UserSecretsId>
   </PropertyGroup>
 
