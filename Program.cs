@@ -14,18 +14,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 
-//var connectionString = ConnectionHelper.GetConnectionString(builder.Configuration);
-//builder.Services.AddDbContext<ApplicationDbContext>(options =>
-//options.UseNpgsql(connectionString));
-
-
-
-
-
-
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+var connectionString = ConnectionHelper.GetConnectionString(builder.Configuration);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(connectionString));
+options.UseNpgsql(connectionString));
+
+
+
+
+
+
+//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+//builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//    options.UseNpgsql(connectionString));
 
 //var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? Environment.GetEnvironmentVariable("DATABASE_URL");
 //builder.Services.AddDbContext<ApplicationDbContext>(options =>
