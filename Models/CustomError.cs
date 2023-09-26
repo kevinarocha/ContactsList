@@ -1,4 +1,4 @@
-﻿namespace MyContactsDigital.Models;
+﻿namespace ContactsList.Models;
 
 public class CustomError
 {

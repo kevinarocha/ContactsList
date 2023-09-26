@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyContactsDigital.Models;
+using ContactsList.Models;
 using System.Diagnostics;
 
-namespace MyContactsDigital.Controllers;
+namespace ContactsList.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;

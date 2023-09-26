@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
-using MyContactsDigital.Data;
-using MyContactsDigital.Helpers;
-using MyContactsDigital.Models;
-using MyContactsDigital.Services;
-using MyContactsDigital.Services.Interfaces;
+using ContactsList.Data;
+using ContactsList.Helpers;
+using ContactsList.Models;
+using ContactsList.Services;
+using ContactsList.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,13 +14,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 
-var connectionString = ConnectionHelper.GetConnectionString(builder.Configuration);
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-options.UseNpgsql(connectionString));
-
-//var connectionString = builder.Configuration.GetConnectionString("ContactDb") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+//var connectionString = ConnectionHelper.GetConnectionString(builder.Configuration);
 //builder.Services.AddDbContext<ApplicationDbContext>(options =>
-//    options.UseNpgsql(connectionString));
+//options.UseNpgsql(connectionString));
+
+
+
+
+
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(connectionString));
 
 //var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? Environment.GetEnvironmentVariable("DATABASE_URL");
 //builder.Services.AddDbContext<ApplicationDbContext>(options =>

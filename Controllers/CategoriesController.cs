@@ -7,12 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
-using MyContactsDigital.Data;
-using MyContactsDigital.Models;
-using MyContactsDigital.Models.ViewModels;
+using ContactsList.Data;
+using ContactsList.Models;
+using ContactsList.Models.ViewModels;
 using Microsoft.AspNetCore.Identity.UI.Services;
 
-namespace MyContactsDigital.Controllers
+namespace ContactsList.Controllers
 {
     public class CategoriesController : Controller
     {

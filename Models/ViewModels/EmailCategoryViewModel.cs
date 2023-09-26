@@ -1,4 +1,4 @@
-﻿namespace MyContactsDigital.Models.ViewModels;
+﻿namespace ContactsList.Models.ViewModels;
 
 public class EmailCategoryViewModel
 {

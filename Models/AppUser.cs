@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MyContactsDigital.Models;
+namespace ContactsList.Models;
 
 public class AppUser : IdentityUser
 {

@@ -1,4 +1,4 @@
-﻿namespace MyContactsDigital.Services.Interfaces;
+﻿namespace ContactsList.Services.Interfaces;
 
 public interface IImageService
 {

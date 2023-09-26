@@ -1,6 +1,6 @@
 ﻿using Npgsql;
 
-namespace MyContactsDigital.Helpers;
+namespace ContactsList.Helpers;
 
 public static class ConnectionHelper
 {

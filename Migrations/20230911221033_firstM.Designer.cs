@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MyContactsDigital.Data;
+using ContactsList.Data;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace MyContactsDigital.Migrations
+namespace ContactsList.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20230911221033_firstM")]
@@ -175,7 +175,7 @@ namespace MyContactsDigital.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("MyContactsDigital.Models.AppUser", b =>
+            modelBuilder.Entity("ContactsList.Models.AppUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -249,7 +249,7 @@ namespace MyContactsDigital.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("MyContactsDigital.Models.Category", b =>
+            modelBuilder.Entity("ContactsList.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -272,7 +272,7 @@ namespace MyContactsDigital.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("MyContactsDigital.Models.Contact", b =>
+            modelBuilder.Entity("ContactsList.Models.Contact", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -340,13 +340,13 @@ namespace MyContactsDigital.Migrations
 
             modelBuilder.Entity("CategoryContact", b =>
                 {
-                    b.HasOne("MyContactsDigital.Models.Category", null)
+                    b.HasOne("ContactsList.Models.Category", null)
                         .WithMany()
                         .HasForeignKey("CategoriesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MyContactsDigital.Models.Contact", null)
+                    b.HasOne("ContactsList.Models.Contact", null)
                         .WithMany()
                         .HasForeignKey("ContactsId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -364,7 +364,7 @@ namespace MyContactsDigital.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("MyContactsDigital.Models.AppUser", null)
+                    b.HasOne("ContactsList.Models.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -373,7 +373,7 @@ namespace MyContactsDigital.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("MyContactsDigital.Models.AppUser", null)
+                    b.HasOne("ContactsList.Models.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -388,7 +388,7 @@ namespace MyContactsDigital.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MyContactsDigital.Models.AppUser", null)
+                    b.HasOne("ContactsList.Models.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -397,16 +397,16 @@ namespace MyContactsDigital.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("MyContactsDigital.Models.AppUser", null)
+                    b.HasOne("ContactsList.Models.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MyContactsDigital.Models.Category", b =>
+            modelBuilder.Entity("ContactsList.Models.Category", b =>
                 {
-                    b.HasOne("MyContactsDigital.Models.AppUser", "AppUser")
+                    b.HasOne("ContactsList.Models.AppUser", "AppUser")
                         .WithMany("Categories")
                         .HasForeignKey("AppUserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -415,9 +415,9 @@ namespace MyContactsDigital.Migrations
                     b.Navigation("AppUser");
                 });
 
-            modelBuilder.Entity("MyContactsDigital.Models.Contact", b =>
+            modelBuilder.Entity("ContactsList.Models.Contact", b =>
                 {
-                    b.HasOne("MyContactsDigital.Models.AppUser", "AppUser")
+                    b.HasOne("ContactsList.Models.AppUser", "AppUser")
                         .WithMany("Contacts")
                         .HasForeignKey("AppUserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -426,7 +426,7 @@ namespace MyContactsDigital.Migrations
                     b.Navigation("AppUser");
                 });
 
-            modelBuilder.Entity("MyContactsDigital.Models.AppUser", b =>
+            modelBuilder.Entity("ContactsList.Models.AppUser", b =>
                 {
                     b.Navigation("Categories");
 

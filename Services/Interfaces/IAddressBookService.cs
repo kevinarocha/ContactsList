@@ -1,6 +1,6 @@
-﻿using MyContactsDigital.Models;
+﻿using ContactsList.Models;
 
-namespace MyContactsDigital.Services.Interfaces;
+namespace ContactsList.Services.Interfaces;
 
 public interface IAddressBookService
 {

@@ -1,9 +1,9 @@
-﻿using MyContactsDigital.Data;
-using MyContactsDigital.Models;
-using MyContactsDigital.Services.Interfaces;
+﻿using ContactsList.Data;
+using ContactsList.Models;
+using ContactsList.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace MyContactsDigital.Services;
+namespace ContactsList.Services;
 
 public class AddressBookService : IAddressBookService
 {

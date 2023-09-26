@@ -1,6 +1,6 @@
-﻿using MyContactsDigital.Services.Interfaces;
+﻿using ContactsList.Services.Interfaces;
 
-namespace MyContactsDigital.Services;
+namespace ContactsList.Services;
 
 public class ImageService : IImageService
 {

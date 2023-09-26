@@ -1,7 +1,7 @@
-﻿using MyContactsDigital.Data;
+﻿using ContactsList.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace MyContactsDigital.Helpers;
+namespace ContactsList.Helpers;
 
 public static class DataHelper
 {

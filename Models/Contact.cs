@@ -1,9 +1,9 @@
-﻿using MyContactsDigital.Enums;
+﻿using ContactsList.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Policy;
 
-namespace MyContactsDigital.Models;
+namespace ContactsList.Models;
 
 public class Contact
 {

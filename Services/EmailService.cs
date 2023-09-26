@@ -3,9 +3,9 @@ using MailKit.Security;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Options;
 using MimeKit;
-using MyContactsDigital.Models;
+using ContactsList.Models;
 
-namespace MyContactsDigital.Services;
+namespace ContactsList.Services;
 
 public class EmailService : IEmailSender
 

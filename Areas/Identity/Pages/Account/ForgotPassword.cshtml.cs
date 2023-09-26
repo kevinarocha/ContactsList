@@ -13,9 +13,9 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using MyContactsDigital.Models;
+using ContactsList.Models;
 
-namespace MyContactsDigital.Areas.Identity.Pages.Account
+namespace ContactsList.Areas.Identity.Pages.Account
 {
     public class ForgotPasswordModel : PageModel
     {

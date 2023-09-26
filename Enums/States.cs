@@ -1,4 +1,4 @@
-﻿namespace MyContactsDigital.Enums;
+﻿namespace ContactsList.Enums;
 
 public enum States
 {

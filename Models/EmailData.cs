@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MyContactsDigital.Models;
+namespace ContactsList.Models;
 
 public class EmailData
 {

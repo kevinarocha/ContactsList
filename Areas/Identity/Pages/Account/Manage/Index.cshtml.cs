@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using MyContactsDigital.Models;
+using ContactsList.Models;
 
-namespace MyContactsDigital.Areas.Identity.Pages.Account.Manage
+namespace ContactsList.Areas.Identity.Pages.Account.Manage
 {
     public class IndexModel : PageModel
     {

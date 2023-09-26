@@ -11,9 +11,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
-using MyContactsDigital.Models;
+using ContactsList.Models;
 
-namespace MyContactsDigital.Areas.Identity.Pages.Account
+namespace ContactsList.Areas.Identity.Pages.Account
 {
     public class LoginWith2faModel : PageModel
     {
